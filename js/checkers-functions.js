@@ -13,31 +13,11 @@ function renderBoard( data ) {
         let cellHTML = '';
         for ( let k=0; k<data.width; k++ ) {
             // nusprendziam kokia bus langelio spalva
-            let color = '';
-            // if ( i % 2 === 0 ) {
-            //     if ( k % 2 === 0 ) {
-            //         color = 'white';
-            //     } else {
-            //         color = 'black';
-            //     }
-            // } else {
-            //     if ( k % 2 === 0 ) {
-            //         color = 'black';
-            //     } else {
-            //         color = 'white';
-            //     }
-            // }
-            
-            // if ( (i + k) % 2 === 0 ) {
-            //     color = 'white';
-            // } else {
-            //     color = 'black';
-            // }
-            cellHTML += `<div class="cell ${ (i+k)%2 === 0 ? 'white' : 'black' }">${k}, ${i}</div>`;
+            cellHTML += `<div class="cell ${ (i+k)%2 === 0 ? 'white' : 'black' }" style="width: ${100 / data.width}%;"></div>`;
         }
 
         // sugeneruotas celes iterpiame i eilute ir eilute prijungiame prie pilno HTML
-        HTML += `<div class="row">${cellHTML}</div>`;
+        HTML += `<div class="row" style="height: ${100 / data.height}%;">${cellHTML}</div>`;
     }
 
     return DOM.innerHTML = HTML;
